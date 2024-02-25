@@ -18,18 +18,18 @@ function hive_start()
     metapid=$(check_process HiveMetaStore 9083)
     cmd="nohup hive --service metastore >$HIVE_LOG_DIR/metastore.log 2>&1 &"
     cmd=$cmd" sleep 4; hdfs dfsadmin -safemode wait >/dev/null 2>&1"
-    [ -z "$metapid" ] && eval $cmd || echo "MetaStroe服务已启动"
+    [ -z "$metapid" ] && (echo "MetaStroe服务启动" && eval $cmd) || echo "MetaStroe服务已启动"
     server2pid=$(check_process HiveServer2 10000)
     cmd="nohup hive --service hiveserver2 >$HIVE_LOG_DIR/hiveServer2.log 2>&1 &"
-    [ -z "$server2pid" ] && eval $cmd || echo "HiveServer2服务已启动"
+    [ -z "$server2pid" ] && (echo "HiveServer2服务启动" && eval $cmd) || echo "HiveServer2服务已启动"
 }
 
 function hive_stop()
 {
     metapid=$(check_process HiveMetaStore 9083)
-    [ "$metapid" ] && kill $metapid || echo "Metastore服务未启动"
+    [ "$metapid" ] &&  (echo "MetaStroe服务关闭" && kill $metapid) || echo "Metastore服务未启动"
     server2pid=$(check_process HiveServer2 10000)
-    [ "$server2pid" ] && kill $server2pid || echo "HiveServer2服务未启动"
+    [ "$server2pid" ] &&  (echo "HiveServer2服务关闭" &&  kill $server2pid) || echo "HiveServer2服务未启动"
 }
 
 case $1 in

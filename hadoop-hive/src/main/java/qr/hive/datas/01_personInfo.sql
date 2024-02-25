@@ -9,11 +9,3 @@ row format delimited
     collection items terminated by '_'
     map keys terminated by ':'
     lines terminated by '\n';
-
-
-
-    row format delimited
-fields terminated by ','
-collection items terminated by '_'
-map keys terminated by ':'
-lines terminated by '\n';
