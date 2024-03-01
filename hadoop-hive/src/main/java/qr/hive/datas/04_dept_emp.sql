@@ -48,3 +48,6 @@ select
 from emp t1
 full join dept t2 on t1.deptno = t2.deptno;
 -- 如果只想保留两个表各自特有数据，应该如何实现？
+
+
+load data local inpath '/soft/hive/testFiles/student.txt' into table stu_bucket;

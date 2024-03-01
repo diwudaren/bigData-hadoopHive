@@ -75,5 +75,10 @@ alter table 表 drop partition(day='20240225'), partition(day='20240226')
         '生成文件'
         load data local inpath '文件' into table 表 partition(day='20240224');
 
-# 分桶表
+# 分桶表 clustered by(id) into 4 buckets
+create table student (id int, name string) clustered by(id) imto 4 buckets row format delimited fields terminated by '\t';
+
+
+
+
 
