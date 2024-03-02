@@ -22,6 +22,10 @@ import org.apache.hadoop.hive.serde2.objectinspector.primitive.PrimitiveObjectIn
  * 4、将jar包添加到hive的classpath       【 hive (default)> add jar /soft/hive/myJar/myudf.jar; 】
  * 6、创建临时函数与开发好的java class关联  【 hive (default)> create temporary function my_len as "com.qr.hive.service.MyStringLength"; 】
  * 7、在hql中使用自定义的函数              【 hive (default)> select ename,my_len(ename) ename_len from emp; 】
+ * 注意：因为add jar的方式本身也是临时生效，所以在创建永久函数的时候，需要执行路径（应且因为元数据的原因，这个路径还得是HDFS上的路径）
+ * 8、创建永久函数                        create function my_len2 as "com.atguigu.hive.udf.MyUDF" using jar "hdfs://hadoop102:8020/udf/myudf.jar";
+ * 9、删除永久函数                       【 hive (default)> drop function my_len2; 】
+ *
  */
 public class MyStringLength extends GenericUDF {
 
