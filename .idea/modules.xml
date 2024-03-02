@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/bigDataHadoopHive.iml" filepath="$PROJECT_DIR$/.idea/bigDataHadoopHive.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hadoop-hive/hadoop-hive.iml" filepath="$PROJECT_DIR$/hadoop-hive/hadoop-hive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/bigData.iml" filepath="$PROJECT_DIR$/.idea/bigData.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hadoop-hive/hadoop.iml" filepath="$PROJECT_DIR$/hadoop-hive/hadoop.iml" />
     </modules>
   </component>
 </project>

@@ -6,12 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hadoop-hive" />
+        <module name="hadoop" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bigDataHadoopHive" target="1.5" />
-      <module name="hadoop-hive" target="1.5" />
+      <module name="bigData" target="1.5" />
+      <module name="hadoop" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

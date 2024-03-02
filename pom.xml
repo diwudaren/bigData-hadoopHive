@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>hadoop-hive</module>
+        <module>hadoop</module>
     </modules>
 
     <groupId>groupId</groupId>
-    <artifactId>bigDataHadoopHive</artifactId>
+    <artifactId>bigData</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
