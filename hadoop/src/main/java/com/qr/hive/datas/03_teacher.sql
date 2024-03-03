@@ -78,7 +78,8 @@ alter table 表 drop partition(day='20240225'), partition(day='20240226')
 # 分桶表 clustered by(id) into 4 buckets
 create table student (id int, name string) clustered by(id) imto 4 buckets row format delimited fields terminated by '\t';
 
-
+# 谓词下推
+select id, name from student t1 left join (select id, name from student) t2 on t1.id = t2.id where t1.id >= 1003;
 
 
 
