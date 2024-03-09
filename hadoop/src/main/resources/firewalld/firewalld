@@ -1,0 +1,49 @@
+# 01
+
+
+# 02
+ firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="11.0.24.222" accept"
+hadoop102
+    firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.213" accept"
+    firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.214" accept"
+    firewall-cmd --reload
+hadoop103
+    firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.212" accept"
+    firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.214" accept"
+    firewall-cmd --reload
+hadoop104
+    firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.213" accept"
+    firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.212" accept"
+    firewall-cmd --reload
+
+
+# 03
+    firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.113" accept"
+hadoop102
+	firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.213" accept"
+	firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.214" accept"
+	firewall-cmd --reload
+hadoop103
+	firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.212" accept"
+	firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.214" accept"
+	firewall-cmd --reload
+hadoop104
+	firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.213" accept"
+	firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.212" accept"
+	firewall-cmd --reload
+
+# 补充删除命令
+    firewall-cmd --permanent --remove-rich-rule="rule family="ipv4" source address="10.24.2.001" accept"
+    firewall-cmd --reload
+
+# 开放IP为192.168.0.0的地址允许访问9001端口
+    firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.0" port protocol="tcp" port="9001" accept"
+
+# 查看已经设置的规则
+    firewall-cmd --zone=public --list-rich-rules
+
+# 限制IP为192.168.0.0的地址禁止访问9001端口即禁止访问机器
+    firewall-cmd --permanent --add-rich-rule="rule family="ipv4" source address="192.168.0.0" port protocol="tcp" port="9001" reject"
+
+# 删除已设置规则
+    firewall-cmd --permanent --remove-rich-rule="rule family="ipv4" source address=" 192.168.0.0" port protocol="tcp" port="9001" accept"

@@ -1,4 +1,4 @@
-package com.qr.kafka.service;
+package com.qr.kafka.producer;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -10,12 +10,12 @@ import java.util.Properties;
  * @date: 2024/3/4 14:16
  * data kafka生产者
  **/
-public class CustomProducer {
+public class $_01CustomProducer {
     public static void main(String[] args) {
         // 创建生产者对象
         Properties properties = new Properties();
         // 创建连接
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"11.0.24.223:9092");
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"hadoop102:9092");
 
         // key,value序列化
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer");
