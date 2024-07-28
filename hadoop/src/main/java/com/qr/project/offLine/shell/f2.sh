@@ -30,10 +30,7 @@ status_flume(){
 }
 
 case $1 in
-"start")
-    flume $1
-;;
-"stop")
+"start" | "stop")
     flume $1
 ;;
 esac
