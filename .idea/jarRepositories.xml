@@ -4,12 +4,12 @@
     <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
-      <option name="url" value="http://maven.aliyun.com/nexus/content/groups/public/" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
-      <option name="url" value="https://repo.maven.apache.org/maven2" />
+      <option name="url" value="http://maven.aliyun.com/nexus/content/groups/public/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="maven-central" />
@@ -37,9 +37,24 @@
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="rf-maven-public" />
+      <option name="name" value="rf-maven-public" />
+      <option name="url" value="http://11.11.164.88:8081/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="maven-releases" />
       <option name="name" value="maven-releases" />
       <option name="url" value="http://mvnrepository.cnpc.com.cn:8081/repository/maven-releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="rf-maven-releases" />
+      <option name="name" value="rf-maven-releases" />
+      <option name="url" value="http://11.11.164.88:8081/repository/maven-releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="rf-maven-snapshots" />
+      <option name="name" value="rf-maven-snapshots" />
+      <option name="url" value="http://11.11.164.88:8081/repository/maven-snapshots/" />
     </remote-repository>
   </component>
 </project>

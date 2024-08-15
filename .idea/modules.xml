@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/gmall-realtime.iml" filepath="$PROJECT_DIR$/gmall-realtime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hadoop/hadoop.iml" filepath="$PROJECT_DIR$/hadoop/hadoop.iml" />
       <module fileurl="file://$PROJECT_DIR$/spark-scala.iml" filepath="$PROJECT_DIR$/spark-scala.iml" />
     </modules>
   </component>
