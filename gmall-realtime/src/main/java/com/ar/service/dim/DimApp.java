@@ -31,6 +31,7 @@ import java.util.List;
 
 public class DimApp extends BaseAppV1 {
     public static void main(String[] args) {
+        System.setProperty("HADOOP_USER_NAME","bigadmin");
         new DimApp().init(2001, 2, "DimApp", Constant.TOPIC_ODS_DB);
     }
 
@@ -38,7 +39,6 @@ public class DimApp extends BaseAppV1 {
     protected void handle(StreamExecutionEnvironment env, DataStreamSource<String> stream) {
         // 1、 ETL
         SingleOutputStreamOperator<JSONObject> etlStream = this.etl(stream);
-        etlStream.print();
         // 2、 读取配置信息
         SingleOutputStreamOperator<TableProcess> tabStream = this.readTableProcess(env);
         // 3、 数据流和广播流做connect
@@ -46,11 +46,11 @@ public class DimApp extends BaseAppV1 {
         // 4、过滤掉不需要的字段
         SingleOutputStreamOperator<Tuple2<JSONObject, TableProcess>> resultStream = filterNotNeedColumns(dataTpStream);
         // 5、根据不同的配置信息，把不同的维度写入到不同的phoenix的表中
+        resultStream.print();
         writeToPhoenix(resultStream);
     }
 
     private void writeToPhoenix(SingleOutputStreamOperator<Tuple2<JSONObject, TableProcess>> stream) {
-
         // 自定义sink
         stream.addSink(FlinkSinkUtils.getPhoenixSink());
     }
@@ -87,7 +87,7 @@ public class DimApp extends BaseAppV1 {
                 sql.append("create table if not exists ")
                         .append(tp.getSinkTable())
                         .append("(")
-                        .append(tp.getSinkColumns().replaceAll("[^,]+", "$0 varchar"))
+                        .append(tp.getSinkColumns().replaceAll("[^,]+", "$0 varchar "))
                         .append("constraint pk primary key (")
                         .append(tp.getSinkPk() == null ? "id" : tp.getSinkPk())
                         .append("))")
@@ -173,7 +173,7 @@ public class DimApp extends BaseAppV1 {
         return stream.filter(json -> {
             try {
                 JSONObject obj = JSON.parseObject(json.replace("bootstrap-", ""));
-                return "gmall112022".equals(obj.getString("database"))
+                return "gmall".equals(obj.getString("database"))
                         && ("insert".equals(obj.getString("type")) || "update".equals(obj.getString("type")))
                         && obj.getString("data") != null
                         && obj.getString("data").length() > 2;

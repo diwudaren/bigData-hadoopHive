@@ -3,6 +3,7 @@ package com.qr.daemon.flume.interceptor;
 import org.apache.flume.Context;
 import org.apache.flume.Event;
 import org.apache.flume.interceptor.Interceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
